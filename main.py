@@ -28,11 +28,14 @@ font2 = pygame.font.SysFont('Arial', 14, False, True)
 path = os.path.dirname(os.path.abspath(__file__))
 bg = pygame.image.load(os.path.join(path, 'image/room.png'))
 bg_rect = bg.get_rect(topleft=(0, 0))
-cat = pygame.image.load(os.path.join(path, 'image/cat.png'))
-cat_rect = cat.get_rect(center=(70, 220))
-dog = pygame.image.load(os.path.join(path, 'image/dog.png'))
-dog_rect = dog.get_rect(center=(410, 220))
-owl = pygame.image.load(os.path.join(path, 'image/owl.png'))
+cat = pygame.image.load(os.path.join(path, 'image/Geralt.png'))
+cat = pygame.transform.scale(cat, (cat.get_width() // 4, cat.get_height() // 4))
+cat_rect = cat.get_rect(center=(90, 220))
+dog = pygame.image.load(os.path.join(path, 'image/Lambert.png'))
+dog = pygame.transform.scale(dog, (dog.get_width() // 4, dog.get_height() // 4))
+dog_rect = dog.get_rect(center=(400, 220))
+owl = pygame.image.load(os.path.join(path, 'image/Lutic.png'))
+owl = pygame.transform.scale(owl, (owl.get_width() // 3, owl.get_height() // 3))
 owl_rect = owl.get_rect(center=(210, 120))
 dialog = pygame.image.load(os.path.join(path, 'image/dialog.png'))
 dialog_rect = dialog.get_rect()
@@ -79,13 +82,17 @@ while run:
                         dialogs(f'Это число {numeral}', dialog_cat_pos, 'Кот, ты выиграл')
                         block = 1
                     else:
-                        dialogs('Дог, твой ход', dialog_dog_pos, 'Продолжаем')
+                        dialogs('Дог, твой ход', dialog_cat_pos, 'Продолжаем')
                 elif move == 2:
                     if int(numeral) == num:
                         dialogs(f'Это число {numeral}', dialog_dog_pos, 'Дог, ты выиграл')
                         block = 1
                     else:
-                        dialogs('Дог, твой ход', dialog_dog_pos, 'Продолжаем')
+                        dialogs('Кот, твой ход', dialog_dog_pos, 'Продолжаем')
+                numeral = ''
+                move += 1
+                if move > 2:
+                    move = 1
 
 
     if block == 0: 
