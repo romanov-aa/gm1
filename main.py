@@ -74,21 +74,21 @@ while run:
                 if int(numeral) > 100:
                     dialogs('', OUTSIDE_BG, 'Вы ошиблись')
                 elif int(numeral) > num:
-                    dialogs('', OUTSIDE_BG, 'Загаданное число меньше')
+                    dialogs('', OUTSIDE_BG, 'Число меньше')
                 elif int(numeral) < num:
-                    dialogs('', OUTSIDE_BG, 'Загаданное число больше')
+                    dialogs('', OUTSIDE_BG, 'Число больше')
                 if move == 1:
                     if int(numeral) == num:
-                        dialogs(f'Это число {numeral}', dialog_cat_pos, 'Кот, ты выиграл')
+                        dialogs(f'Это число {numeral}', dialog_cat_pos, 'Геральт, ты выиграл')
                         block = 1
                     else:
-                        dialogs('Дог, твой ход', dialog_cat_pos, 'Продолжаем')
+                        dialogs('Ламберт, твой ход', dialog_cat_pos, 'Продолжаем')
                 elif move == 2:
                     if int(numeral) == num:
-                        dialogs(f'Это число {numeral}', dialog_dog_pos, 'Дог, ты выиграл')
+                        dialogs(f'Это число {numeral}', dialog_dog_pos, 'Ламберт, ты выиграл')
                         block = 1
                     else:
-                        dialogs('Кот, твой ход', dialog_dog_pos, 'Продолжаем')
+                        dialogs('Геральт, твой ход', dialog_dog_pos, 'Продолжаем')
                 numeral = ''
                 move += 1
                 if move > 2:
@@ -108,7 +108,7 @@ while run:
     pygame.display.update()
 
     if start == 1:
-        dialogs("", OUTSIDE_BG, 'Я загадала число ')
+        dialogs("", OUTSIDE_BG, 'Я загадал число ')
         dialogs("", OUTSIDE_BG, 'От 0 до 100 ')
-        dialogs("Кот, твой ход", dialog_dog_pos, 'Отгадайте его ')
+        dialogs("Геральт, твой ход", dialog_dog_pos, 'Отгадайте его ')
         start = 0
